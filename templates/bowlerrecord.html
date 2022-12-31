@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bowler Record</title>
+</head>
+<body style="text-align: center;">
+
+
+<h1>Bowler Record</h1>
+
+<form action="bowler-record" method="get">
+    <label>Select Bowler</label>
+    <!--use to give drop down-->
+    <select name="bowler">
+        <!--below code is used to show 'Select Team 1' in the drop-down box-->
+        <option>Select Bowler</option>
+        <!--below code is used to show all teams from 'teams' in drop-down-->
+        {% for item in teams %}
+             <option>{{ item }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <input type="submit" value="Find Track Record">
+
+</form>
+<!--here we are checking that we have got dictionary or not from teamvsteam() function-->
+{% if result%}
+     {% for i in result %}
+         <p style="font-size: 20px;">{{ i }}</p>
+         <p>{{ result[i] }}</p>
+     {% endfor %}
+{% endif %}
+
+
+
+</body>
+</html>
